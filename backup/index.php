@@ -1,14 +1,18 @@
 <?php
-  global $wp_query;
+    /*
+     *** CUPFSA PR *** 
+     ** Página de inicio **
+    */
+    global $wp_query;
 
-  define('WP_USE_THEMES', false);
-  require( 'wp/wp-blog-header.php' );
-  include( "fn-wp.php" );
-  
-  $post_fragancia = obtenerPostFijadoPorCategoria( 2 );
-  $post_maquillaje = obtenerPostFijadoPorCategoria( 3 );
-  $post_skincare = obtenerPostFijadoPorCategoria( 4 );
-  $post_fashion = obtenerPostFijadoPorCategoria( 5 );
+    define('WP_USE_THEMES', false);
+    require( 'wp/wp-blog-header.php' );
+    include( "fn-wp.php" );
+
+    $post_fragancia = obtenerPostFijadoPorCategoria( 2 );
+    $post_maquillaje = obtenerPostFijadoPorCategoria( 3 );
+    $post_skincare = obtenerPostFijadoPorCategoria( 4 );
+    $post_fashion = obtenerPostFijadoPorCategoria( 5 );
   
 ?>
 
@@ -19,12 +23,19 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <title>PR</title>
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="js/prscript.js"></script>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />-->
+
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <link rel="stylesheet" type="text/css" href="menu.css" />
+<link rel="stylesheet" type="text/css" href="css/marley.css" />
 
 <style>
     @font-face {
@@ -39,6 +50,8 @@
         src: url(font/FuturaPTBook.otf);
     }
 
+    .hidden{ display: none; }
+
     body {
         color:#000;
         font-family: 'chanel', Arial;
@@ -51,6 +64,11 @@
     }
     a:hover {
         color: #ccc;
+    }
+
+    .intro_prg{
+        text-align: justify;
+        margin: 20px 0 30px 0;
     }
 
     .boton {
@@ -122,8 +140,6 @@
     	text-align: center;	
     	display: table;
     	padding:2px;
-    	
-
     }
     .cuadroTexto span {
     	vertical-align: middle;
@@ -147,7 +163,6 @@
     		bottom: 35px;
     		width: 81%;
     	}
-
     }
 
     @media (max-width: 576px) {
@@ -157,14 +172,57 @@
     	input, textarea {
        		width: 100%;
     	}
+        .intro_prg{
+            font-size: 12px;
+        }
+        
+
     }
+    
+    .alert-info{ color: #FFF; font-size: 12px; background-color: #000; border: 1px solid #999; text-align: center; }
+    .alert-info .close{ color: #FFF; }
 
     .frame-post{
-        height: 600px;
+        width: 100%;
+        height: 550px;
+        border:1px solid #ccc;
+        background-size: cover;
+        background-position: center center;
     }
 
-    .post_frg{
-        background-image: url('<?php echo $post_fragancia[img][0]?>'); 
+    .tit_post{
+        color: #fff;
+        height: 95px;
+        text-align: center;
+        padding: 35px !important;
+        font-size: 14px;
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+    .lnk_post{
+        font-size: 13px;
+        color: #FFF;
+    }
+
+    .post-intro{
+        padding: 5px 15px !important;
+        color: #f3f3f3;
+        font-size: 11px;
+        font-weight: lighter;
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+    .post-frgn{
+        background-image: url('<?php echo $post_fragancia[img][0]?>');
+    }
+    .post-mkup{
+        background-image: url('<?php echo $post_maquillaje[img][0]?>');
+    }
+    .post-sknc{
+        background-image: url('<?php echo $post_skincare[img][0]?>');
+    }
+    .post-fshn{
+        background-image: url('<?php echo $post_fashion[img][0]?>');
     }
 </style>
 
@@ -184,10 +242,10 @@
             
             <ul id="menu">
             	<div style="margin-bottom: 10px;">Ver posts anteriores:</div>
-                <a href="index.php"><li><i class="far fa-dot-circle"></i> Fragrancias</li></a>
-                <a href="inventario.php"><li><i class="far fa-dot-circle"></i> Maquillaje</li></a>
-                <a href="xsesion.php"><li><i class="far fa-dot-circle"></i> Skincare</li></a>
-                <a href="xsesion.php"><li><i class="far fa-dot-circle"></i> Fashion</li></a>
+                <a href="category_posts.php?categ=2"><li><i class="far fa-dot-circle"></i> Fragrancias</li></a>
+                <a href="category_posts.php?categ=3"><li><i class="far fa-dot-circle"></i> Maquillaje</li></a>
+                <a href="category_posts.php?categ=4"><li><i class="far fa-dot-circle"></i> Skincare</li></a>
+                <a href="category_posts.php?categ=5"><li><i class="far fa-dot-circle"></i> Fashion</li></a>
             </ul>
           </div>
         </nav>
@@ -198,64 +256,84 @@
 
 <div class="container" style="padding-top: 95px;">
 
-    <div style="text-align: justify;margin-bottom: 30px;margin-top: 20px;">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </div>
+    <div class="intro_prg" style="">
+    ¡Bienvenido! Para empoderarlos a navegar las propuestas editoriales de todas las divisiones de CHANEL, te invitamos a visitar esta dirección cada semana.  Esperamos de esta forma aliviar tu buzón de tantos correos!<br /><br />
 
-
-    <div class="row hidden">
-        <div class="col-sm-6 col"><img src="<?php echo $post_fragancia[img][0]?>" width="100%"/>
-        	<div class="cuadroTexto"><span><?php echo $post_fragancia["titulo"] ?></span></div>
-    	</div>
-        <div class="col-sm-6 col"><img src="<?php echo $post_maquillaje[img][0]?>" width="100%"/>
-        	<div class="cuadroTexto" style="display:table"><span><?php echo $post_maquillaje["titulo"] ?></span></div>
-    	</div>
+Como siempre, nosotras estaremos a su disposición para recibir consultas sobre los temas por e-mail o por aquí mismo en la plataforma.<BR />
+Estos son sólo los temas prioritarios pero siempre tenemos muchos más en caso quieran desarrollar alguna historia o un tema especial.
     </div>
+    
     <div class="row">
-        <div class="col-sm-6 col"><img src="<?php echo $post_skincare[img][0]?>" width="100%"  />
-            <div class="cuadroTexto"><span>Mira este post de skincare</span></div>
-        </div>
-        <div class="col-sm-6 col"><img src="<?php echo $post_fashion[img][0]?>" width="100%"  />
-            <div class="cuadroTexto"><span>Mira este post de Fashion</span></div>
-        </div>
-    </div>
-
-    <div class="row hidden">
-        <div class="col-sm-6 col">
-            <div class="frame-post post-frg">
+        <div class="col-sm-6 col-xs-12">
+            <figure class="effect-marley">
+                <a href="<?php echo $post_fragancia[contenido] ?>" target="_blank">
+                    <div class="frame-post post-frgn">
+                        <figcaption>
+                            <h2 class="tit_post"><?php echo $post_fragancia["titulo"] ?></h2>
+                            <p class="post-intro"> <?php echo $post_fragancia["extracto"] ?> </p>
+                        </figcaption>
+                    </div>
+                </a>
+            </figure>
                 
-            </div>
         </div>
-        <div class="col-sm-6 col"><img src="<?php echo $post_maquillaje[img][0]?>" width="100%"/>
-            <div class="cuadroTexto" style="display:table"><span><?php echo $post_maquillaje["titulo"] ?></span></div>
+        <div class="col-sm-6 col-xs-12">
+            <figure class="effect-marley">
+                <a href="<?php echo $post_maquillaje[contenido] ?>" target="_blank">
+                    <div class="frame-post post-mkup">
+                        <figcaption>
+                            <h2 class="tit_post"><?php echo $post_maquillaje["titulo"] ?></h2>
+                            <p class="post-intro"><?php echo $post_maquillaje["extracto"] ?></p>
+                            
+                        </figcaption>
+                    </div>
+                </a>
+            </figure>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 col"><img src="<?php echo $post_skincare[img][0]?>" width="100%"  />
-            <div class="cuadroTexto"><span>Mira este post de skincare</span></div>
+        <div class="col-sm-6 col-xs-12">
+            <figure class="effect-marley">
+                <a href="<?php echo $post_skincare[contenido] ?>" target="_blank">
+                    <div class="frame-post post-sknc">
+                        <figcaption>
+                            <h2 class="tit_post"><?php echo $post_skincare["titulo"] ?></h2>
+                            <p class="post-intro"><?php echo $post_skincare["extracto"] ?></p>
+                        </figcaption>
+                    </div>
+                </a>
+            </figure>
         </div>
-        <div class="col-sm-6 col"><img src="<?php echo $post_fashion[img][0]?>" width="100%"  />
-            <div class="cuadroTexto"><span>Mira este post de Fashion</span></div>
+        <div class="col-sm-6 col-xs-12">
+            <figure class="effect-marley">
+                <a href="<?php echo $post_fashion[contenido] ?>" target="_blank">
+                    <div class="frame-post post-fshn">
+                        <figcaption>
+                            <h2 class="tit_post"><?php echo $post_fashion["titulo"] ?></h2>
+                            <p class="post-intro"><?php echo $post_fashion["extracto"] ?></p>
+                        </figcaption>
+                    </div>
+                </a>
+            </figure>
         </div>
     </div>
 
 	<div style="margin-top: 20px;background-color:#000; width: 100%;height: 5px;"></div>
     
-    <div id="email" style="margin-top:30px; margin-bottom:30px; text-align: center;">
-    <div style="font-size: 20px;margin-bottom: 20px;">¿Deseas hacernos alguna pregunta o comentario?</div>
-    <form>
-        <input name="Nombre" type="text" maxlength="30" placeholder="Nombre" /><br /><br />
-        <input name="Email" type="text" maxlength="30" placeholder="Email" /><br /><br />
-        <textarea name="Comentario" placeholder="Preguntas o comentarios"></textarea><br /><br />
-        <div class="boton">enviar</div>
-    </form>
-	</div>
+    <?php include("form.php"); ?>
 
 </div> <!--Cierro container-->
 
 
   
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js" 
+    type="text/javascript"></script>
+
+<script src="js/bootstrap-notify.js"></script>    
+
 </body>
 </html>

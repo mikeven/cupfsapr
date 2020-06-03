@@ -9,7 +9,7 @@
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= 'From: CUPFSA PR<info@cupfsa.com>' . "\r\n";
 
-    $receptor = "mikeven@gmail.com";
+    $receptor = "mcuza@cupfsa.com";
     $asunto   = "Mensaje desde CUPFSA PR";
 
     $mensaje  = "Se ha recibido un mensaje desde el formulario de comentarios de CUPFSA PR: <br>";

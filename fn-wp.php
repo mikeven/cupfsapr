@@ -38,6 +38,12 @@
     return $registros;
   }
   /* ---------------------------------------------------------------------------- */
+  function obtenerDescripcionCategoriaPorId( $ctg ){
+    // Devuelve la descripción de una categoría dado su id
+    
+    return category_description( $ctg );
+  }
+  /* ---------------------------------------------------------------------------- */
   function obtenerPostFijadoPorCategoria( $ctg ){
     // Registro de artículo destacado, página de inicio
 
@@ -73,6 +79,23 @@
 
     return new WP_Query( $args );
   }  
+  /* ---------------------------------------------------------------------------- */
+  function obtenerPostsInicio(){
+    // Devuelve los posts a mostrarse en la página de inicio
+    $posts = array();
+
+    $categorias = [2,3,4,5,7];
+    //2: Fragancia, 3: Maquillaje, 4: Skincare, 5: Fashion, 7: Joyería
+
+    foreach ( $categorias as $c ) {
+      if ( obtenerDescripcionCategoriaPorId( $c ) == "" ){
+       
+        $posts[] = obtenerPostFijadoPorCategoria( $c );
+      }
+    }
+
+    return $posts;
+  }
   /* ---------------------------------------------------------------------------- */
   function paginacionWP( $ctg, $wp_query ){
 

@@ -39,8 +39,6 @@
         src: url(font/FuturaPTBook.otf);
     }
 
-    .hidden{ display: none; }
-
     body {
         color:#000;
         font-family: 'chanel', Arial;
@@ -163,21 +161,10 @@
 
     .frame-post{
         height: 600px;
-        background-size: cover;
-        background-position: center center;
     }
 
-    .post-frgn{
-        background-image: url('<?php echo $post_fragancia[img][0]?>');
-    }
-    .post-mkup{
-        background-image: url('<?php echo $post_maquillaje[img][0]?>');
-    }
-    .post-sknc{
-        background-image: url('<?php echo $post_skincare[img][0]?>');
-    }
-    .post-fshn{
-        background-image: url('<?php echo $post_fashion[img][0]?>');
+    .post_frg{
+        background-image: url('<?php echo $post_fragancia[img][0]?>'); 
     }
 </style>
 
@@ -215,28 +202,40 @@
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
 
+
+    <div class="row hidden">
+        <div class="col-sm-6 col"><img src="<?php echo $post_fragancia[img][0]?>" width="100%"/>
+        	<div class="cuadroTexto"><span><?php echo $post_fragancia["titulo"] ?></span></div>
+    	</div>
+        <div class="col-sm-6 col"><img src="<?php echo $post_maquillaje[img][0]?>" width="100%"/>
+        	<div class="cuadroTexto" style="display:table"><span><?php echo $post_maquillaje["titulo"] ?></span></div>
+    	</div>
+    </div>
     <div class="row">
+        <div class="col-sm-6 col"><img src="<?php echo $post_skincare[img][0]?>" width="100%"  />
+            <div class="cuadroTexto"><span>Mira este post de skincare</span></div>
+        </div>
+        <div class="col-sm-6 col"><img src="<?php echo $post_fashion[img][0]?>" width="100%"  />
+            <div class="cuadroTexto"><span>Mira este post de Fashion</span></div>
+        </div>
+    </div>
+
+    <div class="row hidden">
         <div class="col-sm-6 col">
-            <div class="frame-post post-frgn">
-                <div class="cuadroTexto" style="display:table"><span><?php echo $post_fragancia["titulo"] ?></span></div>
+            <div class="frame-post post-frg">
+                
             </div>
         </div>
-        <div class="col-sm-6 col">
-            <div class="frame-post post-mkup">
-                <div class="cuadroTexto" style="display:table"><span><?php echo $post_maquillaje["titulo"] ?></span></div>
-            </div>
+        <div class="col-sm-6 col"><img src="<?php echo $post_maquillaje[img][0]?>" width="100%"/>
+            <div class="cuadroTexto" style="display:table"><span><?php echo $post_maquillaje["titulo"] ?></span></div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 col">
-            <div class="frame-post post-sknc">
-                <div class="cuadroTexto" style="display:table"><span><?php echo $post_skincare["titulo"] ?></span></div>
-            </div>
+        <div class="col-sm-6 col"><img src="<?php echo $post_skincare[img][0]?>" width="100%"  />
+            <div class="cuadroTexto"><span>Mira este post de skincare</span></div>
         </div>
-        <div class="col-sm-6 col">
-            <div class="frame-post post-fshn">
-                <div class="cuadroTexto" style="display:table"><span><?php echo $post_fashion["titulo"] ?></span></div>
-            </div>
+        <div class="col-sm-6 col"><img src="<?php echo $post_fashion[img][0]?>" width="100%"  />
+            <div class="cuadroTexto"><span>Mira este post de Fashion</span></div>
         </div>
     </div>
 

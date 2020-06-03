@@ -15,10 +15,7 @@
     $category = get_cat_name( $ctg );
     $category_posts = obtenerPostsPorCategoria( $ctg );
 
-  } else {
-
-  }
-  
+  }   
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -202,6 +199,7 @@
             background-position: center center;
         }
         .desc_post{
+            max-width: 90%;
             margin-left: 2%;
             float: left; 
         }
@@ -232,6 +230,9 @@
         font-size: 14px;
     }
 
+    .alert-info{ color: #FFF; font-size: 12px; background-color: #000; border: 1px solid #999; text-align: center; }
+    .alert-info .close{ color: #FFF; }
+
     #lnk_home { float: left; margin-top: -25px; }
     #lnk_home a{ font-size: 14px; color: #666; }
     #lnk_home a:hover{ color: #000; }
@@ -241,29 +242,7 @@
 
 <body>
 
-<div id="header">
-    <div id="lineaNegra"></div>
-    <div id="hamburguesa">
-        <nav role="navigation">
-          <div id="menuToggle">
-            <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-            
-            <ul id="menu">
-                <div style="margin-bottom: 10px;">Ver posts anteriores:</div>
-                <a href="category_posts.php?categ=2"><li><i class="far fa-dot-circle"></i> Fragrancias</li></a>
-                <a href="category_posts.php?categ=3"><li><i class="far fa-dot-circle"></i> Maquillaje</li></a>
-                <a href="category_posts.php?categ=4"><li><i class="far fa-dot-circle"></i> Skincare</li></a>
-                <a href="category_posts.php?categ=5"><li><i class="far fa-dot-circle"></i> Fashion</li></a>
-            </ul>
-          </div>
-        </nav>
-    </div>
-    <div style="text-align:center; margin-top: 5px;"><img src="images/logo.png" width="170" /></div>
-</div>
-<!--Cierro el header-->
+<?php include("menu.php"); ?>
 
 <div class="container" style="padding-top: 95px;">
     <div class="intro_prg">
@@ -333,6 +312,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js" 
     type="text/javascript"></script>
+
+<script src="js/bootstrap-notify.js"></script>
 
 </body>
 </html>

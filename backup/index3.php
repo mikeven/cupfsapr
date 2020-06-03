@@ -9,7 +9,10 @@
     require( 'wp/wp-blog-header.php' );
     include( "fn-wp.php" );
 
-    $posts = obtenerPostsInicio();
+    $post_fragancia = obtenerPostFijadoPorCategoria( 2 );
+    $post_maquillaje = obtenerPostFijadoPorCategoria( 3 );
+    $post_skincare = obtenerPostFijadoPorCategoria( 4 );
+    $post_fashion = obtenerPostFijadoPorCategoria( 5 );
   
 ?>
 
@@ -137,6 +140,8 @@
     	text-align: center;	
     	display: table;
     	padding:2px;
+    	
+
     }
     .cuadroTexto span {
     	vertical-align: middle;
@@ -160,6 +165,7 @@
     		bottom: 35px;
     		width: 81%;
     	}
+
     }
 
     @media (max-width: 576px) {
@@ -172,12 +178,7 @@
         .intro_prg{
             font-size: 12px;
         }
-        
-
     }
-    
-    .alert-info{ color: #FFF; font-size: 12px; background-color: #000; border: 1px solid #999; text-align: center; }
-    .alert-info .close{ color: #FFF; }
 
     .frame-post{
         width: 100%;
@@ -209,17 +210,17 @@
         background: rgba(0, 0, 0, 0.25);
     }
 
-    .post-ctg0{
-        background-image: url('<?php echo $posts[0][img][0]?>');
+    .post-frgn{
+        background-image: url('<?php echo $post_fragancia[img][0]?>');
     }
-    .post-ctg1{
-        background-image: url('<?php echo $posts[1][img][0]?>');
+    .post-mkup{
+        background-image: url('<?php echo $post_maquillaje[img][0]?>');
     }
-    .post-ctg2{
-        background-image: url('<?php echo $posts[2][img][0]?>');
+    .post-sknc{
+        background-image: url('<?php echo $post_skincare[img][0]?>');
     }
-    .post-ctg3{
-        background-image: url('<?php echo $posts[3][img][0]?>');
+    .post-fshn{
+        background-image: url('<?php echo $post_fashion[img][0]?>');
     }
 </style>
 
@@ -227,25 +228,44 @@
 
 <body>
 
-<?php include("menu.php"); ?>
+<div id="header">
+    <div id="lineaNegra"></div>
+    <div id="hamburguesa">
+        <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+            
+            <ul id="menu">
+            	<div style="margin-bottom: 10px;">Ver posts anteriores:</div>
+                <a href="category_posts.php?categ=2"><li><i class="far fa-dot-circle"></i> Fragrancias</li></a>
+                <a href="category_posts.php?categ=3"><li><i class="far fa-dot-circle"></i> Maquillaje</li></a>
+                <a href="category_posts.php?categ=4"><li><i class="far fa-dot-circle"></i> Skincare</li></a>
+                <a href="category_posts.php?categ=5"><li><i class="far fa-dot-circle"></i> Fashion</li></a>
+            </ul>
+          </div>
+        </nav>
+    </div>
+    <div style="text-align:center; margin-top: 5px;"><img src="images/logo.png" width="170" /></div>
+</div>
+<!--Cierro el header-->
 
 <div class="container" style="padding-top: 95px;">
 
     <div class="intro_prg" style="">
-    ¡Bienvenido! Para empoderarlos a navegar las propuestas editoriales de todas las divisiones de CHANEL, te invitamos a visitar esta dirección cada semana.  Esperamos de esta forma aliviar tu buzón de tantos correos!<br /><br />
-
-Como siempre, nosotras estaremos a su disposición para recibir consultas sobre los temas por e-mail o por aquí mismo en la plataforma.<BR />
-Estos son sólo los temas prioritarios pero siempre tenemos muchos más en caso quieran desarrollar alguna historia o un tema especial.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
-    
+
     <div class="row">
         <div class="col-sm-6 col-xs-12">
             <figure class="effect-marley">
-                <a href="<?php echo $posts[0][contenido] ?>" target="_blank">
-                    <div class="frame-post post-ctg0">
+                <a href="<?php echo $post_fragancia[contenido] ?>" target="_blank">
+                    <div class="frame-post post-frgn">
                         <figcaption>
-                            <h2 class="tit_post"><?php echo $posts[0]["titulo"] ?></h2>
-                            <p class="post-intro"> <?php echo $posts[0]["extracto"] ?> </p>
+                            <h2 class="tit_post"><?php echo $post_fragancia["titulo"] ?></h2>
+                            <p class="post-intro"> <?php echo $post_fragancia["extracto"] ?> </p>
                         </figcaption>
                     </div>
                 </a>
@@ -254,11 +274,11 @@ Estos son sólo los temas prioritarios pero siempre tenemos muchos más en caso 
         </div>
         <div class="col-sm-6 col-xs-12">
             <figure class="effect-marley">
-                <a href="<?php echo $posts[1][contenido] ?>" target="_blank">
-                    <div class="frame-post post-ctg1">
+                <a href="<?php echo $post_maquillaje[contenido] ?>" target="_blank">
+                    <div class="frame-post post-mkup">
                         <figcaption>
-                            <h2 class="tit_post"><?php echo $posts[1]["titulo"] ?></h2>
-                            <p class="post-intro"><?php echo $posts[1]["extracto"] ?></p>
+                            <h2 class="tit_post"><?php echo $post_maquillaje["titulo"] ?></h2>
+                            <p class="post-intro"><?php echo $post_maquillaje["extracto"] ?></p>
                             
                         </figcaption>
                     </div>
@@ -269,11 +289,11 @@ Estos son sólo los temas prioritarios pero siempre tenemos muchos más en caso 
     <div class="row">
         <div class="col-sm-6 col-xs-12">
             <figure class="effect-marley">
-                <a href="<?php echo $posts[2][contenido] ?>" target="_blank">
-                    <div class="frame-post post-ctg2">
+                <a href="<?php echo $post_skincare[contenido] ?>" target="_blank">
+                    <div class="frame-post post-sknc">
                         <figcaption>
-                            <h2 class="tit_post"><?php echo $posts[2]["titulo"] ?></h2>
-                            <p class="post-intro"><?php echo $posts[2]["extracto"] ?></p>
+                            <h2 class="tit_post"><?php echo $post_skincare["titulo"] ?></h2>
+                            <p class="post-intro"><?php echo $post_skincare["extracto"] ?></p>
                         </figcaption>
                     </div>
                 </a>
@@ -281,11 +301,11 @@ Estos son sólo los temas prioritarios pero siempre tenemos muchos más en caso 
         </div>
         <div class="col-sm-6 col-xs-12">
             <figure class="effect-marley">
-                <a href="<?php echo $posts[3][contenido] ?>" target="_blank">
-                    <div class="frame-post post-ctg3">
+                <a href="<?php echo $post_fashion[contenido] ?>" target="_blank">
+                    <div class="frame-post post-fshn">
                         <figcaption>
-                            <h2 class="tit_post"><?php echo $posts[3]["titulo"] ?></h2>
-                            <p class="post-intro"><?php echo $posts[3]["extracto"] ?></p>
+                            <h2 class="tit_post"><?php echo $post_fashion["titulo"] ?></h2>
+                            <p class="post-intro"><?php echo $post_fashion["extracto"] ?></p>
                         </figcaption>
                     </div>
                 </a>
@@ -307,8 +327,6 @@ Estos son sólo los temas prioritarios pero siempre tenemos muchos más en caso 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js" 
     type="text/javascript"></script>
-
-<script src="js/bootstrap-notify.js"></script>    
 
 </body>
 </html>

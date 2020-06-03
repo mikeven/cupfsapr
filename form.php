@@ -45,7 +45,7 @@
                     <textarea class="form-control" id="comentario" name="comentario" 
                     placeholder="Comentario" rows="6"/></textarea>
                 </div>
-
+				<br />
                 <div><input type="submit" value="Enviar" class="boton"></div>
 
             </div>
