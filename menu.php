@@ -20,7 +20,7 @@
                 <a href="category_posts.php?categ=3"><li><i class="far fa-dot-circle"></i> Maquillaje</li></a>
                 <a href="category_posts.php?categ=4"><li><i class="far fa-dot-circle"></i> Skincare</li></a>
                 <a href="category_posts.php?categ=5"><li><i class="far fa-dot-circle"></i> Fashion</li></a>
-                <a href="category_posts.php?categ=7"><li><i class="far fa-dot-circle"></i> Joyería</li></a>
+                <a href="category_posts.php?categ=7"><li><i class="far fa-dot-circle"></i> Relojería</li></a>
             </ul>
           </div>
         </nav>

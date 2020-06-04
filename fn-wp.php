@@ -85,7 +85,7 @@
     $posts = array();
 
     $categorias = [2,3,4,5,7];
-    //2: Fragancia, 3: Maquillaje, 4: Skincare, 5: Fashion, 7: Joyería
+    //2: Fragancia, 3: Maquillaje, 4: Skincare, 5: Fashion, 7: Relojería
 
     foreach ( $categorias as $c ) {
       if ( obtenerDescripcionCategoriaPorId( $c ) == "" ){
