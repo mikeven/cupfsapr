@@ -88,10 +88,32 @@
     //2: Fragancia, 3: Maquillaje, 4: Skincare, 5: Fashion, 7: Relojería
 
     foreach ( $categorias as $c ) {
-      if ( obtenerDescripcionCategoriaPorId( $c ) == "" ){
-       
+      if ( obtenerDescripcionCategoriaPorId( $c ) != "" ){
         $posts[] = obtenerPostFijadoPorCategoria( $c );
       }
+    }
+
+    return $posts;
+  }
+  /* ---------------------------------------------------------------------------- */
+  function obtenerPostsInicioOrden(){
+    // Devuelve los posts a mostrarse en la página de inicio
+    $posts = array();
+    $lord = array();
+
+    $categorias = [2,3,4,5,7];
+    //2: Fragancia, 3: Maquillaje, 4: Skincare, 5: Fashion, 7: Relojería
+
+    foreach ( $categorias as $c ) {
+      $orden = obtenerDescripcionCategoriaPorId( $c );
+      if ( $orden != "" )
+        $lord[$orden] = $c;
+    }
+
+    ksort( $lord );
+    
+    foreach ( $lord as $ord => $cat ) {
+      $posts[] = obtenerPostFijadoPorCategoria( $cat );
     }
 
     return $posts;

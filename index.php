@@ -9,7 +9,7 @@
     require( 'wp/wp-blog-header.php' );
     include( "fn-wp.php" );
 
-    $posts = obtenerPostsInicio();
+    $posts = obtenerPostsInicioOrden();
   
 ?>
 
